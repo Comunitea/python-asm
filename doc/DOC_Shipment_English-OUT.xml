@@ -1,0 +1,82 @@
+<Servicios>
+   <Envio codbarras="61771000788931" uid="232a219d-23b9-423e-9b60-f5b3174d3648">
+              <!--
+              codbarra: Barcode of shipment inserted (interleaved 2:5 with checksum).
+                        Only the first 14 digits common to all shipment' s parcels.
+                        Next 3 digits are the ordinal of parcel and last digit is the checksum.
+
+              uid.....: Unique identifier of inserted shipment.
+              -->
+
+      <Resultado return="0"/>
+              <!--
+              0 (zero) ......: Shipment inserted Ok.
+              Any other value: Error on insertion.
+
+                -1: Exception.
+                    Important to mention that usually the D case can be solved if you remove all unnecessary spaces, tabs and enters. Just like Shipment_Example0_Basic_IN_Compressed.xml
+
+                    Examples:
+                      A) Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+                      B) Object reference not set to an instance of an object.
+                      C) Error en el nivel de transporte al enviar la solicitud al servidor. (provider: Proveedor de TCP, error: 0 - Se ha forzado la interrupcion de una conexion existente por el host remoto.)
+                      D) Unable to cast object of type 'System.Xml.XmlComment' to type 'System.Xml.XmlElement'.
+
+                -3: Error, The barcode of the shipment already exists.
+                
+               -48: Error, EuroEstandar service: the number of parcels should always be 1 (<Bultos>).
+               -49: Error, EuroEstandar service: weight should be <= 30 kgs (<Peso>).
+               -50: Error, EuroEstandar service: there can be no RCS (return stamped copy), <Pod>.
+               -51: Error, EuroEstandar service: there can be no SWAP (<Retorno>).
+               -52: Error, EuroEstandar service: reported a country that is not included on the service (<Destinatario>.<Pais>).
+               -53: Error, EuroEstandar service: agency is not authorized to insert EuroEstandar service.
+               -53  Error, ParcelShop   service: <Destinatario>.<Codigo> is the ParcelShop point code, is mandatory and is not informed.
+               -54: Error, EuroEstandar service: The consignee mail address is required (<Destinatario>.<Email>).
+               -55: Error, EuroEstandar service: The consignee mobile phone is required (<Destinatario>.<Movil>).
+               -69: Error, I can not Channeling, wrong consignee zipcode.
+               -70: Error, The order number already exists (<Referencia tipo="0"> or first 10 digits of the <Referencia tipo="C"> if not exists tipo="0") to this date and customer code.
+
+              -103: Error, plaza solicita es null (alta).
+              -104: Error, plaza origen es null (alta).
+              -106: Error, CodCli es null (alta).
+              -107: Error, CodCliRed es null (alta).
+
+              -108: Error, Sender Name must be at least three characters.
+              -109: Error, Sender Address must be at least three characters.
+              -110: Error, Sender City must be at least three characters.
+              -111: Error, Sender Zipcode must be at least four characters.
+              -117: Error, los locales solo en la plaza de origen para la web.
+              -118: Error, customer reference is duplicated.
+              -119: Error, exception, uncontrolled error.
+              -128: Error, Consignee Name must be at least three characters.
+              -129: Error, Consignee Address must be at least three characters.
+              -130: Error, Consignee City must be at least three characters.
+              -131: Error, Consignee Zipcode must be at least four characters.
+                36: Error, Consignee Zipcode, wrong format.
+
+              -->
+      <Errores/>
+      <Referencias>
+         <Referencia tipo="C">1234567AFG86TY9</Referencia>      <!-- same value informed on insertion -->
+         <Referencia tipo="0">1234567890</Referencia>           <!-- same value informed on insertion -->
+      </Referencias>
+      <PlazaDestino>                                            <!-- Last mile agency (destination agency). Returned if <DevuelveAdicionales>.<PlazaDestino> is informed on insertion -->
+         <Codigo></Codigo>                                      <!-- Last mile agency, code -->
+         <Nombre></Nombre>                                      <!-- Last mile agency, name (must appear on the label when the customer prints their own label), up to 20 characters -->
+         <Nemonico></Nemonico>                                  <!-- Last mile agency  mnemonic (must appear on the label when the customer prints their own label), 3 characters -->
+         <Responsable></Responsable>                            <!-- Last mile agency, person responsible -->
+         <Telefono></Telefono>                                  <!-- Last mile agency, phone -->
+         <Fax></Fax>                                            <!-- Last mile agency, fax -->
+         <Mail></Mail>                                          <!-- Last mile agency, email -->
+         <Direccion></Direccion>                                <!-- Last mile agency, address -->
+         <Poblacion></Poblacion>                                <!-- Last mile agency, city -->
+         <Provincia></Provincia>                                <!-- Last mile agency, province -->
+         <CodigoPostal></CodigoPostal>                          <!-- Last mile agency, zipcode -->
+         <Horario></Horario>                                    <!-- Last mile agency, office hours -->
+      </PlazaDestino>
+      <Etiquetas>
+         <Etiqueta bulto=""></Etiqueta>                         <!-- Returned if <DevuelveAdicionales>.<Etiqueta> is informed. Returns one per parcel of shipment, bulto= 1, 2, 3 and so -->
+         <EtiquetaDevolucion></EtiquetaDevolucion>              <!-- Returned if <DevuelveAdicionales>.<EtiquetaDevolucion> is informed -->
+      </Etiquetas>
+   </Envio>
+</Servicios>

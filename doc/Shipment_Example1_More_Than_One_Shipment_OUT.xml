@@ -1,0 +1,16 @@
+<Servicios>
+  <Envio codbarras="61771001452050" uid="a94c5c8a-1ea1-4723-8860-4caaaf60771b">
+    <Resultado return="0"/>
+    <Errores/>
+    <Referencias>
+       <Referencia tipo="C">FIRST00001</Referencia>
+    </Referencias>
+  </Envio>
+  <Envio codbarras="61771001452052" uid="896f61aa-8b94-4776-8831-b56a23695522">
+    <Resultado return="0"/>
+    <Errores/>
+    <Referencias>
+       <Referencia tipo="C">SECOND00002</Referencia>
+    </Referencias>
+  </Envio>
+</Servicios>

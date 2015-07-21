@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--Notes:
+   uidcliente: Customer ID (credentials).
+               Test uidcliente included.
+               Production uiddcliente will be given by Asm.
+
+   <Envio>     Do not include more than 20 to be efficient.
+
+   <Servicio>  For value 54 (EuroEstandar). List of countries (at 08/05/2015):
+                   43 - AT - AUSTRIA 
+                   32 - BE - BELGIUM 
+                  359 - BG - BULGARIA 
+                  385 - HR - CROATIA 
+                  301 - CY - CYPRUS 
+                   42 - CZ - CZECH REPUBLIC 
+                   45 - DK - DENMARK 
+                  360 - EE - ESTONIA 
+                  358 - FI - FINLAND 
+                   33 - FR - FRANCE 
+                   49 - DE - GERMANY 
+                   30 - GR - GREECE 
+                   31 - NL - HOLLAND 
+                   36 - HU - HUNGARY 
+                  353 - IE  - IRELAND 
+                   39 - IT - ITALY 
+                   78 - LV - LATVIA 
+                   77 - LT - LITHUANIA 
+                  352 - LU - LUXEMBOURG 
+                  443 - MT - MALTA 
+                   48 - PL - POLAND 
+                   40 - RO - ROMANIA 
+                    7 - RU - RUSSIA
+                  421 - SK - SLOVAKIA 
+                  386 - SI - SLOVENIA 
+                   46 - SE - SWEDEN 
+                  411 - CH - SWITZERLAND
+                   44 - GB - UNITED KINGDOM 
+               
+               You can use this codes (40 for Romania) or international standar ISO code (RO).
+               
+-->
+
+<Servicios uidcliente="6BAB7A53-3B6D-4D5A-9450-702D2FAC0B11" xmlns="http://www.asmred.com/">
+  <Envio codbarras="">                                                      <!-- [mandatory] Shipment barcode (codbarras is optional). Usually empty or format 99999999999999. It is what we call "Common label". The customer prints their labels adapted to the needs of Asm, but do not want send a file to be loaded in Asm (preadvice file or manifest file), want insert shipments with  webservice. In this case the client generates the barcode (starts with 31) according to the rules of nomenclature and content indicated by Asm. Tag <PlazaDestino> is necessary in order to include <PlazaDestino>.<Nombre> and <PlazaDestino>.<Nemonico> on label-->
+    <Fecha>20/08/2014</Fecha>                                               <!-- [mandatory] Shipment date, format DD/MM/YYYY, >= today and usually today -->
+    <Portes>P</Portes>                                                      <!-- [optional] Postage type (P=prepaid / D=cod), usually "P" -->
+    <Servicio>1</Servicio>                                                  <!-- [mandatory] Service: 1=Courier, 37=Economy, 54=EuroEstandar, 12=International Express, 13=International Economy, ... -->
+    <Horario>3</Horario>                                                    <!-- [mandatory] Horary:  3=ASM24, 2=ASM14, 18=Economy, 19=ParcelShop... Usual combinations of <Servicio>+<Horario>: 1+3=ASM24, 1+2=ASM14, 37+18=Economy, 54+void=EuroEstandar, 12+void=International, 1+19=ParcelShop -->
+    <Bultos>1</Bultos>                                                      <!-- [mandatory] Number of packages of shipment -->
+    <Peso>4</Peso>                                                          <!-- [mandatory] Weigth -->
+    <Volumen></Volumen>                                                     <!-- [optional] Volume -->
+    <Declarado></Declarado>                                                 <!-- [optional] -->
+    <DNINomb></DNINomb>                                                     <!-- [optional] 
+                                                                                 Service with cost (in some cases the NifDst field will be mandatory) 
+                                                                                      Empty = Nothing (No)
+                                                                                      0 = Nothing (No)
+                                                                                      1 = Dni+Name (anyone can receive it)
+                                                                                      2 = Only Dni
+                                                                                      3 = Only Name
+                                                                                      6 = "Identifícate" service (EXCLUSIVE DELIVERY, ONLY recipient can receive it, DNI is checked with the last 4 digits of it)
+                                                                                      7 = Parcel Shop (delivery on ParcelShop point code)
+                                                                                      8 = "Identifícate" + Photo (6 + both faces of Dni are captured) -->
+    <FechaPrevistaEntrega></FechaPrevistaEntrega>                           <!-- [optional] -->
+    <Retorno>0</Retorno>                                                    <!-- [optional] SWAP, collect goods on delivery (0:No, 1:Yes) -->
+    <Pod>N</Pod>                                                            <!-- [optional] RCS, Document in packing list to be returned (N:No, S:Yes) -->
+    <PODObligatorio>N</PODObligatorio>                                      <!-- [optional] POD, at 19/02/2015 only for EuroEstandar & France, to get the pod is mandatory. Service with cost (N:No, S:Yes) -->
+    <Remite>                                                                <!-- [mandatory] Sender -->
+      <Plaza></Plaza>                                                       <!-- [optional] Origin agency -->
+      <Nombre>sender name</Nombre>                                          <!-- [mandatory], up to 80 characters -->
+      <Direccion>sender address</Direccion>                                 <!-- [mandatory], up to 80 characters -->
+      <Poblacion>sender city</Poblacion>                                    <!-- [mandatory] -->
+      <Provincia>sender province</Provincia>                                <!-- [optional] -->
+      <Pais>34</Pais>                                                       <!-- [mandatory] always 34=Spain -->
+      <CP>sender zipcode</CP>                                               <!-- [mandatory]format 99999 -->
+      <Telefono>sender phone</Telefono>                                     <!-- [optional] format 9999999999, not include the country code (+34 for Spain, +33 for France, etc.) -->
+      <Movil>sender cellular</Movil>                                        <!-- [optional] format 9999999999, not include the country code (+34 for Spain, +33 for France, etc.) -->
+      <Email>sender email</Email>                                           <!-- [optional] up to 200 characters -->
+      <Departamento>sender department</Departamento>                        <!-- [optional] up to 50 characters -->
+      <NIF></NIF>                                                           <!-- [optional] TAX ID number -->
+      <Observaciones>Notes</Observaciones>                                  <!-- [optional] up to 80 characters -->
+    </Remite>
+    <Destinatario>                                                          <!-- [mandatory] Recipient (consignee) -->
+      <Codigo></Codigo>                                                     <!-- [mandatory when <Horario>=19, optional for all other] ParcelShop point code -->
+      <Plaza></Plaza>                                                       <!-- [optional] -->
+      <Nombre>delivery name</Nombre>                                        <!-- [mandatory], up to 80 characters -->
+      <Direccion>delivery address</Direccion>                               <!-- [mandatory], up to 80 characters -->
+      <Poblacion>delivery city</Poblacion>                                  <!-- [mandatory] -->
+      <Provincia>delivery province</Provincia>                              <!-- [optional] -->
+      <Pais>34</Pais>                                                       <!-- [mandatory] 34=Spain, 351=Portugal -->
+      <CP>Delivery zipcode</CP>                                             <!-- [mandatory]format 99999 for Spain, 9999-999 for Portugal -->
+      <Telefono>delivery phone</Telefono>                                   <!-- [optional] format 999999999999999, not include the country code (+34 for Spain, +33 for France, etc.) -->
+      <Movil>delivery cellular</Movil>                                      <!-- format 999999999999999 [mandatory for EuroEstandar, <Servicio>=54, because it is possible to send a sms. Optional for all other]. Not include the country code (+34 for Spain, +33 for France, etc.) -->
+      <Email>delivery email</Email>                                         <!-- up to 200 characters [mandatory for EuroEstandar, <Servicio>=54, optional for all other] -->
+      <Observaciones>shipment observations</Observaciones>                  <!-- [optional] up to 80 characters -->
+      <ATT>delivery Contact (useful when delivery name is a business)</ATT> <!-- [optional] -->
+      <Departamento>delivery department</Departamento>                      <!-- [optional] up to 50 characters -->
+      <NIF></NIF>                                                           <!-- [optional] TAX ID number -->
+    </Destinatario>
+    <Referencias>                                                           <!-- Shipment References (optional but highly recommended, at less the tipo=C) -->
+      <Referencia tipo="C">1234567AFG86TY9</Referencia>                     <!-- [one of the two mandatory] Unique shipment/order reference, up to 15 characters -->
+      <Referencia tipo="0">1234567890</Referencia>                          <!-- [one of the two mandatory] Unique shipment/order reference, up to 10 digits -->
+    </Referencias>
+    <Importes>                                                              <!-- [optional] -->
+      <Debidos>0</Debidos>                                                  <!-- [optional] always 0 or missing, ASM decides the price of deliver the shipment -->
+      <Reembolso>12.35</Reembolso>                                          <!-- [optional] Refunt amount, CAD: cash on delivery (when <Portes>=P) -->
+    </Importes>
+    <Seguro tipo="">                                                        <!-- [optional] Insurance [optional]. 0=No, 1=Normalized, 2=Special value -->
+      <Descripcion></Descripcion>                                           <!-- [optional] Description Goods insured -->
+      <Importe>0</Importe>                                                  <!-- [optional] Amount of insured goods (always 0) -->
+    </Seguro>
+    <DevuelveAdicionales>                                                   <!-- [optional] in order to return additional data -->
+      <PlazaDestino />                                                      <!-- [optional] Information of last mile agency -->
+      <Etiqueta tipo=""></Etiqueta>                                         <!-- [optional] Shipment label: Format to return, possible values: EPL,DPL,JPG,PNG,PDF -->
+      <EtiquetaDevolucion tipo=""></EtiquetaDevolucion>                     <!-- [Deactivated] Possible return label: Format to return, possible values: ZPL,PDF -->
+    </DevuelveAdicionales>
+    <DevolverDatosASMDestino></DevolverDatosASMDestino>                     <!-- [Deprecated]. True / False, use DevuelveAdicionales.PlazaDestino -->
+    <Cliente>                                                               <!-- [optional] Customer -->
+      <Codigo></Codigo>                                                     <!-- [optional] Asm Customer Code (when customer have several codes in Asm)-->
+      <Plaza></Plaza>                                                       <!-- [optional] Asm Agency Code -->
+      <Agente></Agente>                                                     <!-- [optional] Asm Agent Code -->
+    </Cliente>
+  </Envio>
+</Servicios>
+

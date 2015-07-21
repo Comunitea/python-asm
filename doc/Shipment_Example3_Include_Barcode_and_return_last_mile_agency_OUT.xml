@@ -1,0 +1,23 @@
+<Servicios>
+  <Envio codbarras="61771000001234" uid="2150bbda-acc3-4df0-9078-3817d54e0814">
+    <Resultado return="0"/>
+    <Errores/>
+    <Referencias>
+       <Referencia tipo="C">111122222</Referencia>
+    </Referencias>
+    <PlazaDestino>
+       <Codigo>281</Codigo>
+       <Nombre>MADRID</Nombre>
+       <Nemonico>A66</Nemonico>
+       <Responsable>D. Antonio Moreno</Responsable>
+       <Telefono>91 413 98 39</Telefono>
+       <Fax>91 415 46 34</Fax>
+       <Mail>juancarlos@multienvios.es</Mail>
+       <Direccion>C/ Valderribas 51 -28007- Madrid</Direccion>
+       <Poblacion>MADRID</Poblacion>
+       <Provincia>MADRID</Provincia>
+       <CodigoPostal>28007</CodigoPostal>
+       <Horario>De 08:30 a 20:30</Horario>
+    </PlazaDestino>
+  </Envio>
+</Servicios>

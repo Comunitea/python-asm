@@ -1,0 +1,56 @@
+Webservices
+
+Nota previa
+
+Si tiene una integración ya realizada es posible que la dirección que tenga empiece por www.asmred.com/WebSrvs/, sería conveniente que sustituya esa dirección por http://wsclientes.asmred.com/
+
+Por ejemplo: www.asmred.com/WebSrvs/b2b.asmx
+
+Seria: http://wsclientes.asmred.com/b2b.asmx
+
+Introducción
+
+El cliente enlaza su aplicación con ASM mediante servicios web, el desarrollo corresponde al cliente e “Integración de Clientes ASM” da soporte en todo lo que el cliente necesite durante la ejecución del proyecto de integración.
+
+Todos los webservices reciben un UIDCLIENTE, en todos los ejemplos aparece uno de prueba que va a asignado a un cliente ficticio y un usuario ficticio de nuestra http://www.asmred.com/extranet y que es wstest y contraseña wstest.
+
+Cuando se quiera pasar a producción debe solicitarse el UIDCLIENTE a la agencia, que lo obtendrá del usuario de la extranet de ASM (mantenimiento de clientes, última pestaña “Web”) y es un valor de 36 letras y números.
+
+La tecnología de webservices usada es SOAP, se dispone del webservice http://wsclientes.asmred.com/b2b.asmx (definición formal del servicio web) con distintas funciones, son los siguientes:
+
+Inserción de envíos y recogidas: función GrabaServicios.
+Impresión de etiquetas: función EtiquetaEnvio.
+
+Grabación de servicios e impresión etiqueta
+
+El servicio b2b implementa una función llamada Grabaservicios que admite como parámetro un XML que puede incluir tanto envíos como recogidas como también recogidas cruzadas. Se pueden incluir en un mismo xml varios envíos y/o recogidas y/o recogidas cruzadas pero para ser eficiente no se aconseja incluir más de 20 ítems en cada llamada. Lo habitual es hacerlo de uno en uno.
+
+http://wsclientes.asmred.com/b2b.asmx?op=GrabaServicios
+
+Para los envíos puede indicar que se retorne la etiqueta en la misma inserción (tag <Etiqueta> de <DevuelveAdicionales>) o bien usar la función EtiquetaEnvio.
+
+Aunque haya obtenido la etiqueta en la propia inserción siempre podrá obtenerla a posteriori desde EtiquetaEnvio si lo necesita. Será posible siempre y cuando el envío cumpla unas condiciones, por ejemplo, no podrá recuperar la etiqueta de un envío que ya ha sido entregado, sólo tiene sentido para envíos cuya mercancía todavía esté en sus instalaciones.
+
+http://wsclientes.asmred.com/b2b.asmx?op=EtiquetaEnvio
+
+Puede poner en el parámetro codigo dos cosas: el código de barras retornado en la inserción (codbarras) o su referencia única de pedido (que también incluyó en la inserción).
+
+Todos los detalles y posibilidades en los siguientes XMLs:
+
+Para envíos:
+DOC_Shipment_English-IN.xml
+DOC_Shipment_English-OUT.xml
+
+Ejemplos concretos con las necesidades más usuales de los clientes.
+
+Para envíos:
+
+Shipment_Example0_Basic_IN.xml
+Shipment_Example0_Basic_IN_Compressed.xml
+Shipment_Example0_Basic_OUT.xml
+Shipment_Example1_More_Than_One_Shipment_IN.xml
+Shipment_Example1_More_Than_One_Shipment_OUT.xml
+Shipment_Example2_ReturnLabelsOnInsert_IN.xml
+Shipment_Example2_ReturnLabelsOnInsert_OUT.xml
+Shipment_Example3_Include_Barcode_and_return_last_mile_agency_IN.xml
+Shipment_Example3_Include_Barcode_and_return_last_mile_agency_OUT.xml

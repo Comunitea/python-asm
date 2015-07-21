@@ -1,0 +1,9 @@
+<Servicios>
+  <Envio codbarras="61771001452051" uid="a94c5c8a-1ea1-4723-8860-4caaaf60724b">
+    <Resultado return="0"/>
+    <Errores/>
+    <Referencias>
+       <Referencia tipo="C">111122222</Referencia>
+    </Referencias>
+  </Envio>
+</Servicios>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Servicios uidcliente="6BAB7A53-3B6D-4D5A-9450-702D2FAC0B11" xmlns="http://www.asmred.com/">
+  <Envio codbarras="61771000001234">
+    <Fecha>14/08/2014</Fecha>
+    <Portes>P</Portes>
+    <Servicio>1</Servicio>
+    <Horario>3</Horario>
+    <Bultos>3</Bultos>
+    <Peso>4</Peso>
+    <Retorno>0</Retorno>
+    <Pod>N</Pod>
+    <Remite>
+      <Plaza></Plaza>
+      <Nombre>ARG Solutions</Nombre>
+      <Direccion>C/Dolca de Provenca 2222</Direccion>
+      <Poblacion>Premia de Dalt</Poblacion>
+      <Provincia>Barcelona</Provincia>
+      <Pais>34</Pais>
+      <CP>08338</CP>
+      <Telefono>961111111</Telefono>
+      <Movil></Movil>
+      <Email></Email>
+      <Observaciones></Observaciones>
+    </Remite>
+    <Destinatario>
+      <Codigo></Codigo>
+      <Plaza></Plaza>
+      <Nombre>Mr Test</Nombre>
+      <Direccion>Calle Juan Esplandi 513b</Direccion>
+      <Poblacion>Madrid</Poblacion>
+      <Provincia>Madrid</Provincia>
+      <Pais>34</Pais>
+      <CP>28007</CP>
+      <Telefono>933888777</Telefono>
+      <Movil>666777888</Movil>
+      <Email>test@test.com</Email>
+      <Observaciones>Fragile</Observaciones>
+      <ATT>Mr Test Contact</ATT>
+    </Destinatario>
+    <Referencias> <!-- cualquier valor siempre distinto a cada prueba-->
+      <Referencia tipo="C">111122222</Referencia>
+    </Referencias>
+    <Importes>
+      <Reembolso>10.50</Reembolso>
+    </Importes>
+    <DevuelveAdicionales>                                                   <!-- in order to return additional data (optional) -->
+      <PlazaDestino />                                                      <!-- Information of last mile agency -->
+    </DevuelveAdicionales>
+  </Envio>
+</Servicios>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Servicios uidcliente="6BAB7A53-3B6D-4D5A-9450-702D2FAC0B11" xmlns="http://www.asmred.com/">
+  <Envio codbarras="">
+    <Fecha>14/08/2014</Fecha>
+    <Portes>P</Portes>
+    <Servicio>1</Servicio>
+    <Horario>3</Horario>
+    <Bultos>1</Bultos>
+    <Peso>4</Peso>
+    <Retorno>0</Retorno>
+    <Pod>N</Pod>
+    <Remite>
+      <Plaza></Plaza>
+      <Nombre>ARG Solutions</Nombre>
+      <Direccion>C/Dolca de Provenca 2222</Direccion>
+      <Poblacion>Premia de Dalt</Poblacion>
+      <Provincia>Barcelona</Provincia>
+      <Pais>34</Pais>
+      <CP>08338</CP>
+      <Telefono>961111111</Telefono>
+      <Movil></Movil>
+      <Email></Email>
+      <Observaciones></Observaciones>
+    </Remite>
+    <Destinatario>
+      <Codigo></Codigo>
+      <Plaza></Plaza>
+      <Nombre>Mr Test</Nombre>
+      <Direccion>Calle Juan Esplandi 513b</Direccion>
+      <Poblacion>Madrid</Poblacion>
+      <Provincia>Madrid</Provincia>
+      <Pais>34</Pais>
+      <CP>28007</CP>
+      <Telefono>933888777</Telefono>
+      <Movil>666777888</Movil>
+      <Email>test@test.com</Email>
+      <Observaciones>Fragile</Observaciones>
+      <ATT>Mr Test Contact</ATT>
+    </Destinatario>
+    <Referencias> <!-- cualquier valor siempre distinto a cada prueba-->
+      <Referencia tipo="C">FIRST00001</Referencia>
+    </Referencias>
+    <Importes>
+      <Reembolso>10.50</Reembolso>
+    </Importes>
+  </Envio>
+  <Envio codbarras="">
+    <Fecha>14/08/2014</Fecha>
+    <Portes>P</Portes>
+    <Servicio>37</Servicio>
+    <Horario>18</Horario>
+    <Bultos>2</Bultos>
+    <Peso>3</Peso>
+    <Retorno>1</Retorno>
+    <Pod>N</Pod>
+    <Remite>
+      <Plaza></Plaza>
+      <Nombre>ARG Solutions</Nombre>
+      <Direccion>C/Dolca de Provenca 2222</Direccion>
+      <Poblacion>Premia de Dalt</Poblacion>
+      <Provincia>Barcelona</Provincia>
+      <Pais>34</Pais>
+      <CP>08338</CP>
+      <Telefono>961111111</Telefono>
+      <Movil></Movil>
+      <Email></Email>
+      <Observaciones></Observaciones>
+    </Remite>
+    <Destinatario>
+      <Codigo></Codigo>
+      <Plaza></Plaza>
+      <Nombre>Mr Test</Nombre>
+      <Direccion>Calle Marina 123 4 2</Direccion>
+      <Poblacion>Premia de Dalt</Poblacion>
+      <Provincia>Barcelona</Provincia>
+      <Pais>34</Pais>
+      <CP>08338</CP>
+      <Telefono>933888777</Telefono>
+      <Movil>666777888</Movil>
+      <Email>test@test.com</Email>
+      <Observaciones>Fragile</Observaciones>
+      <ATT>Mr Test Contact</ATT>
+    </Destinatario>
+    <Referencias> <!-- cualquier valor siempre distinto a cada prueba-->
+      <Referencia tipo="C">SECOND00002</Referencia>
+    </Referencias>
+    <Importes>
+      <Reembolso>10.50</Reembolso>
+    </Importes>
+  </Envio>
+</Servicios>

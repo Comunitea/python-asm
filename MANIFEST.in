@@ -1,0 +1,7 @@
+include LICENSE
+include COPYRIGHT
+include README
+include CHANGELOG
+include INSTALL
+include asm/*
+include asm/template/*

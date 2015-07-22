@@ -21,24 +21,6 @@ with Picking(username, debug) as picking_api:
     print "Send a new picking to ASM - Label PDF"
 
     data = {}
-    data['RemitenteNombre'] = 'Zikzakmedia SL'
-    data['RemitenteNif'] = '123456'
-    data['RemitenteDireccion'] = 'Sant Jaume 9, Baix Segona'
-    data['RemitenteLocalidad'] = u'Vilafranca del Penedes'
-    data['RemitenteProvincia'] = 'Barcelona'
-    data['RemitenteCP'] = '08720'
-    data['RemitenteTelefonocontacto'] = '938902108'
-    data['RemitenteEmail'] = 'zikzak@zikzakmedia.com'
-    data['DestinatarioNombre'] = u'Raimon Esteve Cusine'
-    data['DestinatarioDireccion'] = 'Durruti 1937, 4art 2ona'
-    data['DestinatarioLocalidad'] = 'Barcelona'
-    data['DestinatarioProvincia'] = 'Barcelona'
-    data['DestinatarioCP'] = '08021'
-    data['DestinatarioPais'] = 'ES'
-    data['DestinatarioTelefonocontacto'] = '612121212'
-    data['DestinatarioEmail'] = 'zikzak@zikzakmedia.com'
-    data['CodProducto'] = 'S0235'
-    data['ReferenciaCliente'] = 'ZZS0001'
     #~ data['portes'] = 
     #~ data['servicio'] = 
     #~ data['horario'] = 

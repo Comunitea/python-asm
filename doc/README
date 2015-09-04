@@ -1,6 +1,9 @@
+===========
 Webservices
+===========
 
 Nota previa
+-----------
 
 Si tiene una integración ya realizada es posible que la dirección que tenga empiece por www.asmred.com/WebSrvs/, sería conveniente que sustituya esa dirección por http://wsclientes.asmred.com/
 
@@ -9,6 +12,7 @@ Por ejemplo: www.asmred.com/WebSrvs/b2b.asmx
 Seria: http://wsclientes.asmred.com/b2b.asmx
 
 Introducción
+------------
 
 El cliente enlaza su aplicación con ASM mediante servicios web, el desarrollo corresponde al cliente e “Integración de Clientes ASM” da soporte en todo lo que el cliente necesite durante la ejecución del proyecto de integración.
 
@@ -22,6 +26,7 @@ Inserción de envíos y recogidas: función GrabaServicios.
 Impresión de etiquetas: función EtiquetaEnvio.
 
 Grabación de servicios e impresión etiqueta
+-------------------------------------------
 
 El servicio b2b implementa una función llamada Grabaservicios que admite como parámetro un XML que puede incluir tanto envíos como recogidas como también recogidas cruzadas. Se pueden incluir en un mismo xml varios envíos y/o recogidas y/o recogidas cruzadas pero para ser eficiente no se aconseja incluir más de 20 ítems en cada llamada. Lo habitual es hacerlo de uno en uno.
 
@@ -54,3 +59,35 @@ Shipment_Example2_ReturnLabelsOnInsert_IN.xml
 Shipment_Example2_ReturnLabelsOnInsert_OUT.xml
 Shipment_Example3_Include_Barcode_and_return_last_mile_agency_IN.xml
 Shipment_Example3_Include_Barcode_and_return_last_mile_agency_OUT.xml
+
+Anulación de envíos / recogidas
+-------------------------------
+
+Si se ha equivocado al insertar un envío o recogida puede anularlo. En el sistema de ASM seguirá existiendo ese envío o recogida pero quedará en estado anulado.
+
+Para poder borrar una envío o recogida no debe tener ningún tracking operativo, es decir, es decir, en cuanto tenemos alguna trazabilidad del paquete es que existe, lo tenemos y ya no se puede anular.
+Anular un envío puede servir como modificación, servirá para volver a insertar otro envío con la misma referencia si necesita cambiar algún dato. Por ejemplo, el envío ya no tiene un bulto sino dos, o me olvidé indicar el retorno, etc.
+
+Nuestro servicio web http://wsclientes.asmred.com/b2b.asmx dispone de una función Anula que permite anular envíos y recogidas.
+
+La nomenclatura del xml de entrada es la habitual en el b2b:
+
+· Permite indicar el envío por su código de barras, el código de expedición/recogida de ASM o la referencia del cliente. También el código de recogida de ASM o la referencia de cliente.
+· Permite indicar varios envíos a anular.
+
+Estos son los ejemplos y documentación tanto de entrada como de salida:
+
+DOC_Cancellation_Shipment_Collect_IN.xml
+DOC_Cancellation_Shipment_Collect_OUT.xml
+
+Tenga en cuenta que si posteriormente obtiene información a partir de:
+
+· La función GetExp se retornará sólo el envío por el que pregunte.
+· La función GetExpCli se retornarán todos los envíos existentes, incluso los anulados, podrá saber cuales son los envíos anulados si en el tracking tiene alguna entrada que tenga un <tipo> ESTADO con <codigo> 5:
+
+<tracking_list>
+    <tracking>
+    <tipo>ESTADO</tipo>
+    <evento>ANULADA</evento>
+    <codigo>5</codigo>
+</tracking>

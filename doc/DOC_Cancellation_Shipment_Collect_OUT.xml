@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!--Notes:
+    
+    Values of return:
+           0 (zero) ......: OK, shimpent cancelled / collect cancelled.
+           Any other value: Error.
+           
+           -1: Shipment not exists / Collect not exists.
+           -2: Shipment with operational tracking in ASM / State of collect not allow the cancellation
+           -3: You can not cancel a collect when request date equal to collection date
+           -4: You can not cancel a today's collect
+-->
+
+<Servicios>
+  <Envio codbarras="41300164890596"><Resultado return="0"> Expedicion anulada</Resultado></Envio>
+  <Envio codigo="170001654"><Resultado return="-2"> Tiene tracking operativo</Resultado></Envio>
+  <Envio referencia="CA1568448687"><Resultado return="-1"> No existe envio</Resultado></Envio>
+
+  <Recogida codigo="16000123"><Resultado return="0"> Recogida anulada</Resultado></Recogida>
+  <Recogida codigo="16000123"><Resultado return="-1"> No Existe recogida</Resultado></Recogida>
+  <Recogida codigo="16000123"><Resultado return="-2"> Estado no anulable</Resultado></Recogida>
+  <Recogida referencia="RE00012345"><Resultado return="-3">No se puede anular una recogida con fecha solicitud igual a fecha recogida</Resultado></Recogida>
+  <Recogida referencia="RE00012345"><Resultado return="-4">No se puede anular una recogida de hoy</Resultado></Recogida>
+
+</Servicios>

@@ -1,0 +1,18 @@
+<!--Notes:
+   uidcliente: Customer ID (credentials).
+               Test uidcliente included.
+               Production uiddcliente will be given by Asm.
+
+   <Envio>     Do not include more than 20 to be efficient.
+   <Recogida>  Do not include more than 20 to be efficient.
+-->
+
+<Servicios uidcliente="6BAB7A53-3B6D-4D5A-9450-702D2FAC0B11">
+    <Envio codbarras="41300164890596" />                  <!-- using barcode of shipment -->
+    <Envio codigo="170001654" />                          <!-- using ASM code of shipment -->
+    <Envio referencia="CA1568448687" />                   <!-- using customer reference of shipment -->
+
+    <Recogida codigo="16000123" />                        <!-- using ASM code of collect -->
+    <Recogida referencia="RE00012345" />                  <!-- using customer reference of collect -->
+
+</Servicios>

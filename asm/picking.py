@@ -30,10 +30,12 @@ class Picking(API):
         label = None
         error = None
 
+        today = datetime.datetime.now().date()
+
         tmpl = loader.load('picking_send.xml')
         vals = {
             'username': self.username,
-            'today': datetime.datetime.now().date(),
+            'today': data.get('today', today),
             'portes': data.get('portes', 'P'),
             'servicio': data.get('servicio', '1'),
             'horario': data.get('horario', '2'),

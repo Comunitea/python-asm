@@ -4,20 +4,20 @@
 
 import os
 from setuptools import setup, find_packages
-import asm
 
+__version__ = '0.0.2'
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='asm',
-        version=asm.__version__,
+        version=__version__,
         author='Zikzakmedia SL',
         author_email='zikzak@zikzakmedia.com',
         url="https://www.zikzakmedia.com",
         description="Python API ASM carrier",
         long_description=read('README'),
-        download_url="https://bitbucket.org/zikzakmedia/python-asm",
+        download_url="https://github.com/Comunitea/python-asm",
         package_data={'asm': ['template/*']},
         packages=find_packages(),
         classifiers=[

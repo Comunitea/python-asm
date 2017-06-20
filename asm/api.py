@@ -44,14 +44,14 @@ class API(object):
         return self
 
     def __exit__(self, type, value, traceback):
-        return self
+        pass
 
     def connect(self, xml):
         """
         Connect to the Webservices and return XML data from ASM
 
         :param xml: XML data.
-        
+
         Return XML object
         """
         headers = {
